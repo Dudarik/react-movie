@@ -56,7 +56,7 @@ export default class App extends React.Component {
     // this.setState({searchString})
   }
 
-  getMoviesFromAPI = ({paramArr, request = 's', url = 'http://www.omdbapi.com/?apikey=', apikey = API_KEY, type = ''}) => {
+  getMoviesFromAPI = ({paramArr, request = 's', url = 'https://www.omdbapi.com/?apikey=', apikey = API_KEY, type = ''}) => {
     this.setState({isLoading: true})
 
     let apiURL = `${url}${apikey}&${request}=`
@@ -80,7 +80,8 @@ export default class App extends React.Component {
       const movies = data.Search
       this.setState({movies, isLoading: false})
       // console.log(this.state)
-    })    
+    })
+    .catch(err => console.error(err))
   }
 
   render(){
