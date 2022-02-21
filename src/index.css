@@ -16,14 +16,15 @@ body {
   flex: 1 0 auto;
   padding: 1.5rem 0;
 }
-.card{
+/* .card{
   max-width: 15rem;
   margin: 1rem;
-}
+} */
 
 .movies{
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-gap: 1rem;
 }
 
 code {
@@ -33,4 +34,21 @@ code {
 
 nav{
   padding: 0 1rem;
+}
+
+.dfcc{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mr-1{
+  margin-right: 1rem;
+}
+.ml-1{
+  margin-left: 1rem;
+}
+
+[type="radio"]:not(:checked)+span, [type="radio"]:checked+span {
+  padding-left: 1.5rem;
 }
