@@ -1,6 +1,7 @@
 import Movies from "../components/Movies"
 import Preloader from "../components/Preloader"
 import Search from "../components/Search"
+import Pagination from "../components/Pagination"
 
 export default function Main(props){
   const {movies, searchString, type, isLoading} = props.value
@@ -15,7 +16,8 @@ export default function Main(props){
         searchOnClickHandle = {props.searchOnClickHandle}
         searchOnChangeRadioHandle = {props.searchOnChangeRadioHandle}
       />
-      {!isLoading ? <Movies movies={movies}/> : <div className="dfcc"><Preloader /></div>}   
+      {!isLoading ? <Movies movies={movies}/> : <div className="dfcc"><Preloader /></div>}
+      {!isLoading ? <Pagination value = {props.value} paginationHandle = {props.paginationHandle}/> : ''}
       {/* movies.length    */}
     </main>
   )
