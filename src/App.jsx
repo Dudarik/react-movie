@@ -63,7 +63,6 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this.getMoviesFromAPI({paramArr:['matrix'], page: this.state.currentPage})
-    console.log('mount',this.state)
   }
 
   searchOnChangeHandle (event) {

@@ -13,7 +13,8 @@ export default function Movie(props){
       <div className="col s12 m7">
         {/* <div className="card"> */}
           <div className="card-image">
-            <img src={posterURL} alt={title}/>
+            {posterURL === 'N/A' ? <img src={`https://via.placeholder.com/400x580.png?text=${title}`} alt={title}/> : <img src={posterURL} alt={title}/>}
+            
             <span className="card-title">{title}</span>
           </div>
           <div className="card-content">

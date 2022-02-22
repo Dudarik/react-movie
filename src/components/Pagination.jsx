@@ -9,8 +9,6 @@ export default function Pagination(props){
       prevPage = +currentPage > 1 ? +currentPage - 1 : 0,
       nextPage = +currentPage < pages ? +currentPage + 1 : 0
 
-      console.log(prevPage, nextPage)
-
   let arrForPag = new Array(pages).fill(1)
 
   return(
