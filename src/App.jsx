@@ -15,6 +15,7 @@ export default class App extends React.Component {
       type: 'all',
       isLoading: false,
       totalResults: 0,
+      itemPerPage: 10,
       currentPage: 1,
     }
 
@@ -26,9 +27,26 @@ export default class App extends React.Component {
   }
   paginationHandle(event){
     let searchString = this.state.searchString.slice()
-    console.log(event.target)
-    this.setState({currentPage: event.target.dataset.page})
-    this.getMoviesFromAPI({paramArr:[searchString], type: this.state.type, page:this.state.currentPage})
+    let page = event.target.dataset.page
+
+    let totalPages = +this.state.totalResults,
+        itemPerPage = +this.state.itemPerPage,
+        pages = +Math.ceil(totalPages / itemPerPage)
+  
+    
+    if (page < 1) { 
+      page = 1
+      return
+    }
+
+    if (page > pages) { 
+      page = pages
+      return
+    }
+    
+    event.preventDefault()
+    this.setState({currentPage: page, movies:[]})
+    this.getMoviesFromAPI({paramArr:[searchString], type: this.state.type, page})
   }
 
   searchOnChangeRadioHandle(event){

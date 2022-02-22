@@ -16,6 +16,7 @@ export default function Main(props){
         searchOnClickHandle = {props.searchOnClickHandle}
         searchOnChangeRadioHandle = {props.searchOnChangeRadioHandle}
       />
+      {!isLoading ? <Pagination value = {props.value} paginationHandle = {props.paginationHandle}/> : ''}
       {!isLoading ? <Movies movies={movies}/> : <div className="dfcc"><Preloader /></div>}
       {!isLoading ? <Pagination value = {props.value} paginationHandle = {props.paginationHandle}/> : ''}
       {/* movies.length    */}
